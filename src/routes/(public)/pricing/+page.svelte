@@ -1,12 +1,12 @@
 <script>
-	import { signIn } from '@auth/sveltekit/client'
+	import { signIn } from '@auth/sveltekit/client';
 
-	export let data
+	export let data;
 
 	function choose(plan) {
 		signIn('github', {
 			callbackUrl: `/checkout?plan=${plan.handle}`
-		})
+		});
 	}
 </script>
 
@@ -17,7 +17,7 @@
 		<article>
 			<h2>{plan.name}</h2>
 
-			<p>{(plan.price / 100).toLocaleString('en', { style: 'currency', currency: 'usd' })}</p>
+			<p>{(plan.price / 100).toLocaleString('en', { style: 'currency', currency: 'eur' })}</p>
 
 			<button on:click|preventDefault={() => choose(plan)}>Choose</button>
 		</article>
